@@ -2,17 +2,11 @@
 создайте класс `Car`, наследник `Vehicle`
 """
 from homework_02.base import Vehicle
-from homework_02.engine import Engine
+from homework_02.base import Engine
 
 
 class Car(Vehicle):
-    _engine = Engine()
+    engine: None
 
-    @property
-    def engine(self):
-        return self._engine
-
-    def set_engine(self, value):
-        if not isinstance(value, Engine):
-            raise TypeError("Wrong type for engine")
-        self._engine =(value)
+    def set_engine(self, Engine):
+        self.engine = Engine
