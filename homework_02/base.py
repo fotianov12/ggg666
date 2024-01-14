@@ -13,6 +13,7 @@ class Vehicle(ABC):
         self.weight = weight
         self.fuel = fuel
         self.fuel_consumption = fuel_consumption
+
         self.started = False
 
     def start(self):
@@ -21,8 +22,10 @@ class Vehicle(ABC):
                 raise LowFuelError
         self.started = True
 
+
     def move(self, distance):
         n = distance * self.fuel_consumption
         if n > self.fuel:
             raise NotEnoughFuel
+
         self.fuel -= n
